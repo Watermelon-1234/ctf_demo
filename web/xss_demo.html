@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XSS Demo</title>
+</head>
+<body>
+    <h1>Welcome to the XSS Demo</h1>
+    <p>Your message: <span id="message"></span></p>
+
+    <script>
+        // 獲取 URL 中的 'message' 參數
+        const urlParams = new URLSearchParams(window.location.search);
+        const message = urlParams.get('message');
+
+        // 直接將 message 插入到 DOM 中
+        document.getElementById('message').innerHTML = message;
+    </script>
+</body>
+</html>
